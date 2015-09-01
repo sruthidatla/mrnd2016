@@ -1,0 +1,43 @@
+#include<stdio.h>
+void reverse(char *f, char *l);
+void sentence(char *s);
+void main()
+{
+char s[30];
+printf("enter a string\n");
+gets(s);
+char *t = s;
+sentence(s);
+printf("%s", s);
+}
+void sentence(char *s)
+{
+char *f = s;
+char *t = s; 
+
+
+while( *t )
+{
+	t++;
+	if (*t == '\0')
+	{
+	reverse(f, t-1);
+	}
+	else if(*t == ' ')
+	{
+	reverse(f, t-1);
+	f = t+1;
+	}
+} 
+reverse(s, t-1);
+}
+void reverse(char *f, char *l)
+{
+char t1;
+while (f < l)
+{
+	t1 = *f;
+	*f++ = *l;
+	*l-- = t1;
+}
+}

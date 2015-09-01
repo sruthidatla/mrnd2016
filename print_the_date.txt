@@ -1,0 +1,118 @@
+#include<stdio.h>
+void date(int date);
+void month(int month);
+void year(int year);
+void main()
+{
+	int date, month, year;
+	printf("enter the date_month_year\n");
+	scanf("%d", &date);
+	scanf("%d", &month);
+	scanf("%d", &year);
+	
+	if (date>0 && date <= 31 && month <= 12)
+	{
+		if (month == 4 || month== 6 || month == 9 || month == 11)
+		{
+			if (date > 30)
+				printf("invalide date ");
+			
+		}
+		if (month == 2)
+		{
+			if (date == 29 && year % 4 == 0)
+			{
+				printf("Leap year \n");
+			}
+			else if (date> 28)
+				printf("feb has only 28 days");
+		}
+
+		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+		{
+			if (date > 31)
+				printf("invalid date or month");
+		}
+	}
+	else
+	{
+		printf("invalid date or month");
+	}
+
+	date(date);
+	month(month);
+	year(year);
+}
+
+
+void date(int date)
+{
+	int i,j;
+	char date1[11][11] = { " ", "first ", "second ", "third ", "fourth ", "fifth", "Sixth ", "Seventh ", "Eighth ", "Ninght ","tenth" };
+	char date2[10][15] = {" ", "Eleventh ", "Twelveth ", "Thirteenth ", "Fourteenth ", "Fifteenth ", "Sixteenth ", "Seventeenth ","eighteenth", "Nineteenth " };
+	char date33[6][9] = { "tenth", "Twenty ","thirty"};
+	if (date <=9 )
+	{
+		printf("%s\t", date1[d]);
+	}
+	if (date>= 11 && date <= 19)
+	{
+		printf("%s\t", date2[d % 10]);
+	}
+	if (date % 10 == 0)
+	{
+		printf("%s\t", date3[(d / 10) - 1]);
+	}
+	if (date>20)
+	{
+		i= date / 10;
+		j= date % 10;
+		printf("%s", date3[i - 1]);
+		printf("%s", date1[j]);
+	}
+
+}
+
+void month(int month)
+{
+	char month1[][12] = { "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" };
+	printf("%s", month1[month-1]);
+}
+
+void year(int year)
+{
+	int year1, year2, year3, year4;
+	char year1[][10] = { " ", "One ", "Two ", "Three ", "Four ", "Five ", "Six ", "Seven ", "Eight ", "Nine " };
+	char year2[][9] = { "","Eleven ", "Twelve ", "Thirteen ", "Fourteen ", "Fifteen ", "Sixteen ", "Seventeen", "Eighteen ", "Nineteen " };
+	char year3[][9] = { "Ten ", "Twenty ", "Thirty ", "Forty ", "Fifty ", "Sixty ", "Seventy ", "Eighty ", "Ninety " };
+
+	if (year > 999 & year < 9999)
+	{
+		year4 = year/ 1000;
+		year = year % 1000;
+		printf("%s Thousand", year1[year4]);
+	}
+
+	if (y>99 && y < 1000)
+	{
+		year3 = year/ 100;
+		year2 = year % 100 / 10;
+		year1 = year % 100 % 10;
+		printf("%s Hundred", year1[year3]);
+		
+		year = year% 100;
+	}
+
+	if (year>= 11 && year<= 19)
+	{
+		printf("%s", year2[year % 10]);
+	}
+	if (year>20 && year<100)
+	{
+		year1 = year / 10;
+		year2 = year% 10;
+		printf("%s", year3[year1 - 1]);
+		printf("%s", year1[year2]);
+	}
+
+}

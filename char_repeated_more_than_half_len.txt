@@ -1,0 +1,32 @@
+#include <stdio.h>
+void  repeat(char *);
+char a[50];
+int b[255];
+void main()
+{
+	printf("enter a string\n");
+	scanf("%s",a);
+	repeat(a);
+}
+void repeat(char a[50])
+{
+	int i,j,count=0,n;
+	for(n=0;a[n]!='\0';n++);
+	for(i=0;a[i]!='\0';i++)
+	{
+		count=0;
+		if(b[a[i]]==0)
+		{
+			for(j=i+1;a[j]!='\0';j++)
+			{
+				if(a[i]==a[j])
+					count++;
+			}
+			b[a[i]]=1;
+		}
+		if(count>n/2)
+		{
+			printf("%c",a[i]);
+		}
+	}
+}

@@ -1,0 +1,23 @@
+//program to print sum of digits in a given number
+#include <stdio.h>
+int sum(int);
+void main()
+{
+	int n,i;
+	printf("enter a number\n");
+	scanf("%d",&n);
+	i=sum(n);
+	printf("sum of digits is %d\n",i);
+}
+int sum(int n)
+{
+	int r=0,d;
+	while(n)
+	{
+		d=n%10;
+		r=r+d;
+		n=n/10;
+	}
+	return r;
+}
+	

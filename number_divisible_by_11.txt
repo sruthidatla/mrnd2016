@@ -1,0 +1,33 @@
+#include <stdio.h>
+int divisible(int);
+int even=0,odd=0;
+void main()
+{
+	int n,k;
+	printf("enter a number\n");
+	scanf("%d",&n);
+	k=divisible(n);
+	if(k==1)
+		printf("number is divisible\n");
+	else
+		printf("it is not divisible\n");
+}
+int divisible(int n)
+{
+	int d,i=0;
+	while(n!=0)
+	{
+		d=n%10;
+		if(i%2==0)
+			even+=d;
+		else 
+			odd+=d;
+		n=n/10;
+		i++;
+	}
+	if((even-odd)==0)
+		return 1;
+	else
+		return divisible((even-odd));
+	return 2;
+}

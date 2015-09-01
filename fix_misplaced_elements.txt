@@ -1,0 +1,40 @@
+//program to correct 2 misplaced elements in a sorted array
+#include <stdio.h>
+int a[20];
+void correct(int *,int);
+void main()
+{
+	int i,n;
+	printf("enter no of elements\n");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	correct(a,n);
+	printf("the array after correction is \n");
+	for(i=0;i<n;i++)
+		printf("%d",a[i]);
+}
+void correct(int a[],int n)
+{
+	int i,t,swap,k,l;
+	for(i=0;i<n;i++)
+	{
+		if(a[i]>a[i+1])
+		{
+			t=i;
+			break;
+		}
+	}
+	for(l=n-1;l>i;l--)
+	{
+		if(a[l]<a[l-1])
+		{
+			k=l;
+			break;
+		}
+	}
+	swap=a[k];
+	a[k]=a[t];
+	a[t]=swap;
+}
+	

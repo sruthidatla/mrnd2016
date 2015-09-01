@@ -1,0 +1,19 @@
+//program to find length of given string
+#include <stdio.h>
+int length(char *);
+void main()
+{
+	char a[20];
+	int len;
+	printf("enter a string\n");
+	scanf("%[^\n]s",a);
+	len=length(a);
+	printf("the length of given string is %d",len);
+}
+int length(char a[])
+{
+	int i;
+	for(i=0;a[i]!='\0';i++);
+	return i;
+}
+	

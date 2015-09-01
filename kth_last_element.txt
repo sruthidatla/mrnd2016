@@ -1,0 +1,30 @@
+//program to print the k th element from last without finding length
+#include <stdio.h>
+char a[20];
+char element(char *,int);
+void main()
+{
+	int k;
+	char l;
+	printf("enter a string\n");
+	scanf("%s",a);
+	printf("enter the value of k\n");
+	scanf("%d",&k);
+	if(k<0)
+		printf("invalid input\n");
+	break;
+	l=element(a,k);
+	if(l==1)
+		printf("invalid position");
+	else
+	printf("the %d th elemnt from last is %c",k,l);
+}
+char element(char a[],int k)
+{
+	int i,j;
+	for(i=k,j=0;a[i]!='\0';i++,j++);
+	if(k>i)
+		return 1;
+	else
+	return a[j+1];
+}

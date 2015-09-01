@@ -1,0 +1,32 @@
+//program to rotate the array given no of times
+#include <stdio.h>
+int a[20];
+void rotate(int *,int,int);
+void main()
+{
+	int n,i,r;
+	printf("enter no of elements\n");
+	scanf("%d",&n);
+	printf("enter %d elements\n",n);
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	printf("enter no of rotations\n");
+	scanf("%d",&r);
+	rotate(a,n,r);
+	printf("the resultant array is \n");
+	for(i=0;i<n;i++)
+		printf("%d",a[i]);
+}
+void rotate(int a[],int n,int r)
+{
+	int temp,j;
+	r=r%n;
+	while(r)
+	{
+		temp=a[n-1];
+		for(j=n-2;j>=0;j--)
+			a[j+1]=a[j];
+		a[0]=temp;
+		r--;
+	}
+}
